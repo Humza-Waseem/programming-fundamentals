@@ -1,27 +1,19 @@
-#include <iostream>
+#include<iostream>
+#include<windows.h>
 using namespace std;
+
+void gotoxy(int x,int y)
+ { 
+   COORD coordinates;
+    coordinates.X =x;
+    coordinates.Y=y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coordinates);
+}
+  
 main()
 {
- string temp,humidity;
- cout<<"enter temp:";
- cin>>temp;
- cout<<"enter humidity:";
- cin>>humidity;
-
-if(temp=="warm" )
-{
-  if(humidity=="dry")
-  cout<<"play tennis";
-  if(humidity=="humid")
-  cout<<"swim";
-}
- 
-if(temp=="cold")
-{
-  if(humidity=="dry")
-  cout<<"play basketball";
-  if(humidity=="humid")
-  cout<<"watch TV";
-}
-
+ system("cls");
+ cout<<"test";
+ gotoxy(15,15);
+ cout<<"My name is muhammad hamza";
 }

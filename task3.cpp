@@ -1,25 +1,59 @@
-#include <iostream>
+#include<iostream>
+#include<windows.h>
 using namespace std;
-void isEligible(int age);
 
+void gotoxy(int,int);
+void printMaze();
+void playerMove(int x,int y);
 main()
 {
-int age;
-cout<<"enter your age";
-cin>>age;     }
-void isEligible(int age)  
+       system("cls");
+       printMaze();
+       int x=3;
+       int y=3;
+     
+         playerMove(x,y);
+         
+         if(x== 20)
+          {
+              gotoxy(x-1, y);
+              cout<<" ";
+              x=3;
+           }    
+ }
+   void printMaze()
 {
-if(age>=18)
-{ 
-  cout<<"eligible";  
-}
-                                            
-if (age<18)
-{
-  cout<<"not eligible";
-}
+    cout<<"###############################"<<endl;
+    cout<<"#                             #"<<endl;
+    cout<<"#                             #"<<endl;
+    cout<<"#                             #"<<endl; 
+    cout<<"#                             #"<<endl;
+    cout<<"#                             #"<<endl;
+    cout<<"#                             #"<<endl;
+    cout<<"#                             #"<<endl;
+    cout<<"#                             #"<<endl; 
+    cout<<"#                             #"<<endl;
+    cout<<"#                             #"<<endl;
+    cout<<"###############################"<<endl;
 }
 
+
+void gotoxy(int x, int y)
+
+ { 
+    COORD coordinates;
+    coordinates.X =x;
+    coordinates.Y=y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coordinates);
+ }
+void playerMove(int x,int y)
+ { 
+   gotoxy(x-1, y);
+   cout<<" ";
+   gotoxy(x, y);
+   cout<<"p";
+   Sleep(400);
+ }
 
    
   

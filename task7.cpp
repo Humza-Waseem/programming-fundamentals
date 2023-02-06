@@ -1,103 +1,28 @@
 #include <iostream>
 using namespace std;
-
-void time(int startingHours, int startingMinutes, int arrivalHours, int arrivalMinutes);
-
 main()
-
 {
-
-    int startingHours, startingMinutes, arrivalHours, arrivalMinutes;
-
-    cout << "Enter exam starting time (Hours): ";
-
-    cin >> startingHours;
-
-    cout << "Enter exam starting time (Minutes): ";
-
-    cin >> startingMinutes;
-
-    cout << "Enter arrival time (Hours): ";
-
-    cin >> arrivalHours;
-
-    cout << "Enter arrival time (Minutes): ";
-
-    cin >> arrivalMinutes;
-
-    time(startingHours, startingMinutes, arrivalHours, arrivalMinutes);
-}
-
-void time(int startingHours, int startingMinutes, int arrivalHours, int arrivalMinutes)
-
-{
-    int diff, tArrivalMinutes, tStartingMinutes, outputHours, outputMinutes;
-
-    tArrivalMinutes = (arrivalHours * 60) + arrivalMinutes;
-
-    tStartingMinutes = (startingHours * 60) + startingMinutes;
-
-    if ((tArrivalMinutes - tStartingMinutes) > 0)
-
+    string word;
+    cout << "enter the word:";
+    cin >> word;
+    char letter;
+    cout << "enter the letter:";
+    cin >> letter;
+    bool isfound = false;
+    for (int i = 0; word[i] != '\0'; i++)
     {
-
-        cout << "Late" << endl;
+        if (word[i] == letter)
+        {
+            isfound = true;
+            break;
+        }
     }
-
-    else if ((tStartingMinutes - tArrivalMinutes) >= 0 && (tStartingMinutes - tArrivalMinutes) <= 30)
-
+    if (isfound == true)
     {
-
-        cout << "On time" << endl;
+        cout << "letter found";
     }
-
-    else if ((tStartingMinutes - tArrivalMinutes) > 30)
-
+    if (isfound == false)
     {
-
-        cout << "Early" << endl;
-    }
-
-    if (((tStartingMinutes - tArrivalMinutes) > 1) && ((tStartingMinutes - tArrivalMinutes) < 60))
-
-    {
-
-        diff = tStartingMinutes - tArrivalMinutes;
-
-        cout << diff << " minutes before the start." << endl;
-    }
-
-    if ((tStartingMinutes - tArrivalMinutes) >= 60)
-
-    {
-        diff = tStartingMinutes - tArrivalMinutes;
-
-        outputHours = diff / 60;
-
-        outputMinutes = diff % 60;
-
-        cout << outputHours << ":" << outputMinutes << " hours before the start." << endl;
-    }
-
-    if (((tArrivalMinutes - tStartingMinutes) > 1) && ((tArrivalMinutes - tStartingMinutes) < 60))
-
-    {
-
-        diff = tArrivalMinutes - tStartingMinutes;
-
-        cout << diff << " minutes after the start." << endl;
-    }
-
-    if ((tArrivalMinutes - tStartingMinutes) >= 60)
-
-    {
-
-        diff = tArrivalMinutes - tStartingMinutes;
-
-        outputHours = diff / 60;
-
-        outputMinutes = diff % 60;
-
-        cout << outputHours << ":" << outputMinutes << " hours after the start." << endl;
+        cout << "letter not found";
     }
 }
